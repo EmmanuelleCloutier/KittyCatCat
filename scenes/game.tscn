@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkf10v7jneoek"]
+[gd_scene load_steps=4 format=3 uid="uid://bkf10v7jneoek"]
 
 [ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/player.tscn" id="1_mej1e"]
+[ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="2_nybvc"]
 
-[sub_resource type="TileSet" id="TileSet_ulws5"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tn27u"]
+a = Vector2(0.999969, -574)
+b = Vector2(-0.999969, 579)
 
 [node name="Game" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -572.0
+offset_top = -296.0
+offset_right = 579.0
+offset_bottom = 304.0
+texture = ExtResource("2_nybvc")
+stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_mej1e")]
 position = Vector2(75, 64)
@@ -13,6 +24,22 @@ position = Vector2(75, 64)
 position = Vector2(75, 57)
 zoom = Vector2(4, 4)
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_ulws5")
-format = 2
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-572, -1)
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(579, 0)
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -296)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 303)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_tn27u")
