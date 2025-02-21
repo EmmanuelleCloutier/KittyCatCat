@@ -19,12 +19,14 @@ scale = Vector2(2.2061, 1.65553)
 texture = ExtResource("2_nybvc")
 stretch_mode = 1
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0.999992, 0)
+rotation = 3.14159
+scale = Vector2(142.379, 191.54)
+zoom = Vector2(4, 4)
+
 [node name="Player" parent="." instance=ExtResource("1_mej1e")]
 position = Vector2(75, 64)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -7)
-zoom = Vector2(4, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
