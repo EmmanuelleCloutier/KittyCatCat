@@ -11,11 +11,11 @@ b = Vector2(-0.999969, 579)
 [node name="Game" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -1177.0
-offset_top = -515.0
-offset_right = -26.0001
-offset_bottom = 85.0
-scale = Vector2(2.2061, 1.65553)
+offset_left = -204.0
+offset_top = -177.0
+offset_right = 947.0
+offset_bottom = 423.0
+scale = Vector2(0.3661, 0.61553)
 texture = ExtResource("2_nybvc")
 stretch_mode = 1
 
@@ -27,8 +27,11 @@ zoom = Vector2(4, 4)
 
 [node name="Player" parent="." instance=ExtResource("1_mej1e")]
 position = Vector2(75, 64)
+scale = Vector2(0.548, 0.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 16)
+scale = Vector2(0.27, 0.3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-533, 2)
@@ -44,11 +47,11 @@ rotation = 1.5708
 shape = SubResource("SegmentShape2D_tn27u")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-2, 266)
+position = Vector2(3.7037, 220)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_tn27u")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="StaticBody2D"]
 offset_left = -797.0
 offset_top = -337.0
 offset_right = -748.0
@@ -56,7 +59,7 @@ offset_bottom = -224.0
 scale = Vector2(6.2, 6.2)
 texture = ExtResource("3_qwyj6")
 
-[node name="TextureRect3" type="TextureRect" parent="."]
+[node name="TextureRect3" type="TextureRect" parent="StaticBody2D"]
 offset_left = 788.0
 offset_top = 341.0
 offset_right = 837.0
@@ -65,16 +68,16 @@ rotation = 3.13943
 scale = Vector2(6.16059, 6.2)
 texture = ExtResource("3_qwyj6")
 
-[node name="TextureRect4" type="TextureRect" parent="."]
-offset_left = -578.0
-offset_top = 495.0
-offset_right = -529.0
-offset_bottom = 608.0
+[node name="TextureRect4" type="TextureRect" parent="StaticBody2D"]
+offset_left = -577.778
+offset_top = 436.667
+offset_right = -528.778
+offset_bottom = 549.667
 rotation = 4.7116
 scale = Vector2(5.44016, 10.3598)
 texture = ExtResource("3_qwyj6")
 
-[node name="TextureRect5" type="TextureRect" parent="."]
+[node name="TextureRect5" type="TextureRect" parent="StaticBody2D"]
 offset_left = 588.0
 offset_top = -511.0
 offset_right = 637.0
