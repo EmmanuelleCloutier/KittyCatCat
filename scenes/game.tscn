@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkf10v7jneoek"]
+[gd_scene load_steps=7 format=3 uid="uid://bkf10v7jneoek"]
 
+[ext_resource type="Script" path="res://scripts/CHATBRUNEnnemyspawner.gd" id="1_bfy0m"]
 [ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/player.tscn" id="1_mej1e"]
 [ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="2_nybvc"]
 [ext_resource type="Texture2D" uid="uid://dyrepwsxjqkrb" path="res://assets/environnement/cote.png" id="3_qwyj6"]
+[ext_resource type="PackedScene" uid="uid://dqyhvl1geyhwd" path="res://scenes/CHATNOIRspawner.tscn" id="4_k51tm"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tn27u"]
 a = Vector2(0.999969, -574)
 b = Vector2(-0.999969, 579)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_bfy0m")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -204.0
@@ -85,3 +88,7 @@ offset_bottom = -398.0
 rotation = 1.57078
 scale = Vector2(5.83999, 10.3598)
 texture = ExtResource("3_qwyj6")
+
+[node name="CHATNOIRSpawner" parent="." instance=ExtResource("4_k51tm")]
+position = Vector2(-138, -90)
+scale = Vector2(0.528334, 0.68)
