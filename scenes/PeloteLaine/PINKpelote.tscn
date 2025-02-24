@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1cnb38fm7avq"]
+
+[ext_resource type="Texture2D" uid="uid://bv1gmctxurixr" path="res://assets/materials/PinkBall-Sheet.png" id="1_3ptjr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4nqg"]
+atlas = ExtResource("1_3ptjr")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcsy7"]
+atlas = ExtResource("1_3ptjr")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrrbb"]
+atlas = ExtResource("1_3ptjr")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrcr5"]
+atlas = ExtResource("1_3ptjr")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7nwg"]
+atlas = ExtResource("1_3ptjr")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3x6d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4nqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcsy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrrbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrcr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7nwg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gq5x6"]
+radius = 5.09902
+
+[node name="PINKpelote" type="Node"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3x6d2")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 2
+shape = SubResource("CircleShape2D_gq5x6")

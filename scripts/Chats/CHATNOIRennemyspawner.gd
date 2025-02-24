@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var game = get_node("/root/Game/CHATBRUNSpawner")
-var ennemichat_scene := preload("res://scenes/CHATBRUNspawner.tscn")
+@onready var game = get_node("/root/Game/CHATNOIRSpawner")
+var ennemichat_scene := preload("res://scenes/ChatNoir/CHATNOIRennemy.tscn")
 var spawn_points := []
 
 func _ready():
@@ -15,4 +15,4 @@ func _on_timer_timeout():
 	chat.position = spawn.position
 	
 	game.add_child(chat)
-	print("chat brun added")
+	print("chat noir added")
