@@ -159,7 +159,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ckrw"]
 radius = 8.06226
 
-[node name="ChatNoir" type="CharacterBody2D"]
+[node name="ChatBrun" type="CharacterBody2D"]
 collision_layer = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -167,8 +167,7 @@ light_mask = 4
 sprite_frames = SubResource("SpriteFrames_lngfq")
 animation = &"run"
 autoplay = "idle "
-frame = 10
-frame_progress = 0.122777
+frame_progress = 0.301784
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
