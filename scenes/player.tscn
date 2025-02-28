@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://doanwcepb86vv"]
+[gd_scene load_steps=27 format=3 uid="uid://doanwcepb86vv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_j7dxf"]
 [ext_resource type="Texture2D" uid="uid://tkfme2kmilka" path="res://assets/cats/DemonicFree/IdleCatd.png" id="1_r1cl0"]
@@ -160,6 +160,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqt1e"]
 radius = 10.0499
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_c7eqi"]
+radius = 8.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_j7dxf")
@@ -173,3 +176,11 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_iqt1e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -10)
+shape = SubResource("CircleShape2D_c7eqi")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

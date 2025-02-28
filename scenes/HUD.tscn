@@ -6,5 +6,7 @@
 script = ExtResource("1_ms3d2")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 518.0
+offset_top = 350.0
+offset_right = 558.0
+offset_bottom = 373.0

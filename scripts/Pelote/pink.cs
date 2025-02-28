@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Coin : Area2D
+public partial class pink : Area2D
 {
 	public override void _Ready()
 	{
@@ -12,12 +12,12 @@ public partial class Coin : Area2D
 		else {
 			GD.Print("Le GameManager na pas ete trouve");
 		}
-		Connect("_on_body_entered", new Callable(this,"OnBodyEntered"));
+		Connect("body_entered", new Callable(this,"OnBodyEntered"));
 	}
 
 	private void OnBodyEntered(Node body)
 	{
-		GD.Print("Triggered");
+		GD.Print("Triggered pink pelote");
 		
 		if(body.IsInGroup("Player"))
 		{

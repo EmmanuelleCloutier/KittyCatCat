@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkf10v7jneoek"]
+[gd_scene load_steps=9 format=3 uid="uid://bkf10v7jneoek"]
 
 [ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/player.tscn" id="1_mej1e"]
 [ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="2_nybvc"]
 [ext_resource type="Texture2D" uid="uid://dyrepwsxjqkrb" path="res://assets/environnement/cote.png" id="3_qwyj6"]
-[ext_resource type="Script" path="res://scripts/PeloteSpawner.cs" id="4_l7uw3"]
+[ext_resource type="Script" path="res://scripts/Pelote/PeloteSpawner.cs" id="4_l7uw3"]
 [ext_resource type="PackedScene" uid="uid://c1cnb38fm7avq" path="res://scenes/PeloteLaine/PINKpelote.tscn" id="5_clnrw"]
 [ext_resource type="PackedScene" uid="uid://ba848wb6k2kqd" path="res://scenes/PeloteLaine/BLUEpelote.tscn" id="6_e3cdc"]
 [ext_resource type="PackedScene" uid="uid://c6kvisvh5u5k6" path="res://scenes/PeloteLaine/YELLOWpelote.tscn" id="7_nv0ou"]
-[ext_resource type="PackedScene" uid="uid://bru1hunsex1pv" path="res://scenes/HUD.tscn" id="8_rveq3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tn27u"]
 a = Vector2(0.999969, -574)
@@ -18,21 +17,13 @@ position = Vector2(-220, -220)
 scale = Vector2(1.56, 1.84)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 2500.0
-offset_bottom = 2500.0
+offset_left = -7.05128
+offset_top = -28.2609
+offset_right = 2492.95
+offset_bottom = 2471.74
 scale = Vector2(0.221491, 0.144761)
 texture = ExtResource("2_nybvc")
 stretch_mode = 1
-
-[node name="Player" parent="." instance=ExtResource("1_mej1e")]
-position = Vector2(272.436, 108.152)
-scale = Vector2(0.5, 0.5)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(1.28205, -3.26086)
-rotation = 3.14159
-scale = Vector2(519.631, 765.856)
-zoom = Vector2(4, 4)
 
 [node name="PeloteSpawner" type="Node2D" parent="."]
 position = Vector2(289.744, 148.37)
@@ -43,6 +34,18 @@ YELLOWpelote = ExtResource("7_nv0ou")
 
 [node name="Timer" type="Timer" parent="PeloteSpawner"]
 wait_time = 5.0
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("1_mej1e")]
+position = Vector2(272.436, 108.152)
+scale = Vector2(0.5, 0.5)
+collision_layer = 1
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-0.000196815, 0.000347376)
+rotation = 3.14159
+scale = Vector2(519.631, 765.856)
+zoom = Vector2(4, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(289.103, 157.065)
@@ -101,4 +104,4 @@ rotation = 1.57078
 scale = Vector2(5.83999, 10.3598)
 texture = ExtResource("3_qwyj6")
 
-[node name="Hud" parent="." instance=ExtResource("8_rveq3")]
+[connection signal="timeout" from="PeloteSpawner/Timer" to="PeloteSpawner" method="OnTimerTimeout"]

@@ -1,7 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://c6kvisvh5u5k6"]
 
 [ext_resource type="Texture2D" uid="uid://560a8a56pchy" path="res://assets/materials/OrangeBall-Sheet.png" id="1_hwrqx"]
-[ext_resource type="Script" path="res://scripts/Coin.cs" id="1_xd8ge"]
+[ext_resource type="Script" path="res://scripts/Pelote/yellow.cs" id="2_3fws2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7a463"]
+radius = 4.12311
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7gos"]
 atlas = ExtResource("1_hwrqx")
@@ -46,20 +49,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7a463"]
-radius = 4.12311
-
 [node name="YellowPelote" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_3fws2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_7a463")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_st82e")
 autoplay = "default"
 frame = 2
 frame_progress = 0.935326
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("1_xd8ge")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_7a463")
+[connection signal="body_entered" from="Area2D" to="Area2D" method="body_entered"]

@@ -9,10 +9,16 @@ public partial class PeloteSpawner : Node2D
 	[Export] public PackedScene YELLOWpelote;
 	
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
+	private Timer spawnTimer;
 	
 	public override void _Ready()
 	{
 		rng.Randomize();
+	}
+	
+	private void OnTimerTimeout()
+	{
+		GD.Print("ResettingTimer"); 
 		SpawnCoins(5); 
 	}
 	

@@ -3,22 +3,35 @@ using System;
 
 public partial class GameManager : Node
 {
-	private HUD hud;
-	public static GameManager Instance;
-	
+	private int score = 0;  // Variable de score
+	public static GameManager Instance;  // Propriété statique
+
 	public override void _Ready()
 	{
-		Instance = this;
-		hud = GetNode<HUD>("/root/Game/HUD");
+		if (Instance == null)
+		{
+			Instance = this;  // Initialisation de l'instance
+			GD.Print("GameManager initialisé");
+		}
+		else
+		{
+			GD.Print("Une instance de GameManager existe déjà !");
+		}
 	}
-	
+
 	public void PrintMessage(string message)
 	{
 		GD.Print(message);
 	}
-	
+
 	public void AddPoints(int amount)
 	{
-		hud.AddScore(amount);
+		score += amount;
+		GD.Print("Score ajouté: " + score);
+	}
+
+	public int GetScore()
+	{
+		return score;
 	}
 }
