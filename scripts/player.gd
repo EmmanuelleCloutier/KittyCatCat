@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var Speed = 200
 @onready var animated_sprite = 	$AnimatedSprite2D
 
+func _ready():
+	add_to_group("Player")
+	
 func _physics_process(delta) -> void:
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
@@ -32,7 +35,8 @@ func _physics_process(delta) -> void:
 		
 	move_and_slide()
 
-	
+
+		
 		
 
 		
