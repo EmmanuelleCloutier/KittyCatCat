@@ -1,20 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkf10v7jneoek"]
+[gd_scene load_steps=18 format=3 uid="uid://bkf10v7jneoek"]
 
-[ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/player.tscn" id="1_mej1e"]
+[ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/Player/player.tscn" id="1_mej1e"]
 [ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="2_nybvc"]
 [ext_resource type="Texture2D" uid="uid://dyrepwsxjqkrb" path="res://assets/environnement/cote.png" id="3_qwyj6"]
 [ext_resource type="Script" path="res://scripts/Pelote/PeloteSpawner.cs" id="4_l7uw3"]
 [ext_resource type="PackedScene" uid="uid://c1cnb38fm7avq" path="res://scenes/PeloteLaine/PINKpelote.tscn" id="5_clnrw"]
 [ext_resource type="PackedScene" uid="uid://ba848wb6k2kqd" path="res://scenes/PeloteLaine/BLUEpelote.tscn" id="6_e3cdc"]
+[ext_resource type="Script" path="res://scripts/Chats/EnnemySpawner.cs" id="6_neo0m"]
+[ext_resource type="PackedScene" uid="uid://ip3ougvlnyhw" path="res://scenes/Chats/chat3couleur.tscn" id="7_jcble"]
 [ext_resource type="PackedScene" uid="uid://c6kvisvh5u5k6" path="res://scenes/PeloteLaine/YELLOWpelote.tscn" id="7_nv0ou"]
+[ext_resource type="PackedScene" uid="uid://ccqqaga21vf30" path="res://scenes/Player/Projectile.tscn" id="7_y0xlu"]
+[ext_resource type="PackedScene" uid="uid://c3erpkc813g8y" path="res://scenes/Chats/chatblanc.tscn" id="8_6sfbu"]
+[ext_resource type="PackedScene" uid="uid://ias32umk4wpb" path="res://scenes/Chats/chatbrun.tscn" id="9_lw7e3"]
+[ext_resource type="PackedScene" uid="uid://csv04jvlw72ci" path="res://scenes/Chats/chatclassique.tscn" id="10_eymvc"]
+[ext_resource type="PackedScene" uid="uid://75pwoybh3t12" path="res://scenes/Chats/chatnoir.tscn" id="11_onhpb"]
+[ext_resource type="PackedScene" uid="uid://5b6tpiictlbh" path="res://scenes/Chats/chatsiamese.tscn" id="12_idkhd"]
+[ext_resource type="PackedScene" uid="uid://cno727co4nhip" path="res://scenes/Chats/chattigre.tscn" id="13_h4gym"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tn27u"]
 a = Vector2(0.999969, -574)
 b = Vector2(-0.999969, 579)
 
 [node name="Game" type="Node2D"]
-position = Vector2(-220, -220)
-scale = Vector2(1.56, 1.84)
+position = Vector2(-33, -42)
+scale = Vector2(2.14707, 2.27935)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -7.05128
@@ -26,7 +35,7 @@ texture = ExtResource("2_nybvc")
 stretch_mode = 1
 
 [node name="PeloteSpawner" type="Node2D" parent="."]
-position = Vector2(289.744, 148.37)
+position = Vector2(290.385, 154.348)
 script = ExtResource("4_l7uw3")
 PINKpelote = ExtResource("5_clnrw")
 BLUEpelote = ExtResource("6_e3cdc")
@@ -36,10 +45,25 @@ YELLOWpelote = ExtResource("7_nv0ou")
 wait_time = 5.0
 autostart = true
 
+[node name="EnnemySpawner" type="Node2D" parent="."]
+visible = false
+position = Vector2(288.765, 157.063)
+script = ExtResource("6_neo0m")
+Enemy1 = ExtResource("7_jcble")
+Enemy2 = ExtResource("8_6sfbu")
+Enemy3 = ExtResource("9_lw7e3")
+Enemy4 = ExtResource("10_eymvc")
+Enemy5 = ExtResource("11_onhpb")
+Enemy6 = ExtResource("12_idkhd")
+Enemy7 = ExtResource("13_h4gym")
+
+[node name="Timer" type="Timer" parent="EnnemySpawner"]
+autostart = true
+
 [node name="Player" parent="." instance=ExtResource("1_mej1e")]
 position = Vector2(272.436, 108.152)
 scale = Vector2(0.5, 0.5)
-collision_layer = 1
+projectile_scene = ExtResource("7_y0xlu")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-0.000196815, 0.000347376)
@@ -104,4 +128,8 @@ rotation = 1.57078
 scale = Vector2(5.83999, 10.3598)
 texture = ExtResource("3_qwyj6")
 
+[node name="Chat3Couleur" parent="." instance=ExtResource("7_jcble")]
+position = Vector2(190.026, 80.2862)
+
 [connection signal="timeout" from="PeloteSpawner/Timer" to="PeloteSpawner" method="OnTimerTimeout"]
+[connection signal="timeout" from="EnnemySpawner/Timer" to="EnnemySpawner" method="OnTimerTimeout"]

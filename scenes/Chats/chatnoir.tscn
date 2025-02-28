@@ -1,35 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://75pwoybh3t12"]
+[gd_scene load_steps=17 format=3 uid="uid://75pwoybh3t12"]
 
-[ext_resource type="Texture2D" uid="uid://dr7neuuglu5r6" path="res://assets/cats/BlackCat/IdleCatb.png" id="1_n4djm"]
 [ext_resource type="Texture2D" uid="uid://buthoiowql3h4" path="res://assets/cats/BlackCat/JumpCabt.png" id="2_bklp7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4h2yv"]
-atlas = ExtResource("1_n4djm")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1q1mn"]
-atlas = ExtResource("1_n4djm")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5nxh"]
-atlas = ExtResource("1_n4djm")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovgww"]
-atlas = ExtResource("1_n4djm")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mrwcp"]
-atlas = ExtResource("1_n4djm")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qqh4f"]
-atlas = ExtResource("1_n4djm")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x58ma"]
-atlas = ExtResource("1_n4djm")
-region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5e7f"]
 atlas = ExtResource("2_bklp7")
@@ -87,32 +58,6 @@ region = Rect2(384, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4h2yv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1q1mn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m5nxh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ovgww")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mrwcp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qqh4f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x58ma")
-}],
-"loop": true,
-"name": &"idle ",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_j5e7f")
 }, {
 "duration": 1.0,
@@ -159,13 +104,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ckrw"]
 radius = 8.06226
 
-[node name="ChatNoir" type="CharacterBody2D"]
-collision_layer = 4
+[node name="Chatnoir" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lngfq")
 animation = &"run"
-autoplay = "idle "
+autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)

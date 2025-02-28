@@ -18,7 +18,6 @@ public partial class PeloteSpawner : Node2D
 	
 	private void OnTimerTimeout()
 	{
-		GD.Print("ResettingTimer"); 
 		SpawnCoins(5); 
 	}
 	
@@ -42,6 +41,5 @@ public partial class PeloteSpawner : Node2D
 		
 		coin.Position = randomPosition;
 		AddChild(coin);
-		 GD.Print($"Spawned {selectedCoin.ResourcePath} at {randomPosition}");
 	}
 }

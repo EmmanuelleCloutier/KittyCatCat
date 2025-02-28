@@ -50,6 +50,7 @@ animations = [{
 }]
 
 [node name="BluePelote" type="Node2D"]
+light_mask = 4
 scale = Vector2(0.5, 0.5)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -62,5 +63,3 @@ shape = SubResource("CircleShape2D_hrk16")
 sprite_frames = SubResource("SpriteFrames_cn0fc")
 autoplay = "default"
 frame_progress = 0.704659
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
