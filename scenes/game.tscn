@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkf10v7jneoek"]
+[gd_scene load_steps=20 format=3 uid="uid://bkf10v7jneoek"]
 
 [ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/Player/player.tscn" id="1_mej1e"]
 [ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="2_nybvc"]
+[ext_resource type="Script" path="res://scripts/Player/SourisSpawner.cs" id="3_p2lo1"]
 [ext_resource type="Texture2D" uid="uid://dyrepwsxjqkrb" path="res://assets/environnement/cote.png" id="3_qwyj6"]
 [ext_resource type="Script" path="res://scripts/Pelote/PeloteSpawner.cs" id="4_l7uw3"]
+[ext_resource type="PackedScene" uid="uid://cnw1nww0y373a" path="res://scenes/Player/souris.tscn" id="4_remyf"]
 [ext_resource type="PackedScene" uid="uid://c1cnb38fm7avq" path="res://scenes/PeloteLaine/PINKpelote.tscn" id="5_clnrw"]
 [ext_resource type="PackedScene" uid="uid://ba848wb6k2kqd" path="res://scenes/PeloteLaine/BLUEpelote.tscn" id="6_e3cdc"]
 [ext_resource type="Script" path="res://scripts/Chats/EnnemySpawner.cs" id="6_neo0m"]
@@ -22,20 +24,84 @@ a = Vector2(0.999969, -574)
 b = Vector2(-0.999969, 579)
 
 [node name="Game" type="Node2D"]
-position = Vector2(-33, -42)
+position = Vector2(-8, -3)
 scale = Vector2(2.14707, 2.27935)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -7.05128
-offset_top = -28.2609
-offset_right = 2492.95
-offset_bottom = 2471.74
+offset_left = -4.65751
+offset_top = -52.2079
+offset_right = 2495.34
+offset_bottom = 2447.79
 scale = Vector2(0.221491, 0.144761)
 texture = ExtResource("2_nybvc")
 stretch_mode = 1
 
+[node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
+position = Vector2(1285.1, 1283.23)
+scale = Vector2(2.25743, 3.45397)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(-533, 2)
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(540, 5)
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(-5.96046e-08, -260)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(3.7037, 220)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/StaticBody2D"]
+offset_left = -797.0
+offset_top = -337.0
+offset_right = -748.0
+offset_bottom = -224.0
+scale = Vector2(6.2, 6.2)
+texture = ExtResource("3_qwyj6")
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/StaticBody2D"]
+offset_left = 788.0
+offset_top = 341.0
+offset_right = 837.0
+offset_bottom = 454.0
+rotation = 3.13943
+scale = Vector2(6.16059, 6.2)
+texture = ExtResource("3_qwyj6")
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect/StaticBody2D"]
+offset_left = -577.778
+offset_top = 436.667
+offset_right = -528.778
+offset_bottom = 549.667
+rotation = 4.7116
+scale = Vector2(5.44016, 10.3598)
+texture = ExtResource("3_qwyj6")
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect/StaticBody2D"]
+offset_left = 588.0
+offset_top = -511.0
+offset_right = 637.0
+offset_bottom = -398.0
+rotation = 1.57078
+scale = Vector2(5.83999, 10.3598)
+texture = ExtResource("3_qwyj6")
+
+[node name="SourisSpawner" type="Node2D" parent="."]
+script = ExtResource("3_p2lo1")
+MouseScene = ExtResource("4_remyf")
+
+[node name="Timer" type="Timer" parent="SourisSpawner"]
+wait_time = 10.0
+autostart = true
+
 [node name="PeloteSpawner" type="Node2D" parent="."]
-position = Vector2(290.385, 154.348)
 script = ExtResource("4_l7uw3")
 PINKpelote = ExtResource("5_clnrw")
 BLUEpelote = ExtResource("6_e3cdc")
@@ -46,8 +112,6 @@ wait_time = 5.0
 autostart = true
 
 [node name="EnnemySpawner" type="Node2D" parent="."]
-visible = false
-position = Vector2(288.765, 157.063)
 script = ExtResource("6_neo0m")
 Enemy1 = ExtResource("7_jcble")
 Enemy2 = ExtResource("8_6sfbu")
@@ -61,7 +125,7 @@ Enemy7 = ExtResource("13_h4gym")
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("1_mej1e")]
-position = Vector2(272.436, 108.152)
+position = Vector2(283.642, 167.153)
 scale = Vector2(0.5, 0.5)
 projectile_scene = ExtResource("7_y0xlu")
 
@@ -71,65 +135,6 @@ rotation = 3.14159
 scale = Vector2(519.631, 765.856)
 zoom = Vector2(4, 4)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(289.103, 157.065)
-scale = Vector2(0.5, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-533, 2)
-shape = SubResource("SegmentShape2D_tn27u")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(540, 5)
-shape = SubResource("SegmentShape2D_tn27u")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-5.96046e-08, -260)
-rotation = 1.5708
-shape = SubResource("SegmentShape2D_tn27u")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(3.7037, 220)
-rotation = 1.5708
-shape = SubResource("SegmentShape2D_tn27u")
-
-[node name="TextureRect2" type="TextureRect" parent="StaticBody2D"]
-offset_left = -797.0
-offset_top = -337.0
-offset_right = -748.0
-offset_bottom = -224.0
-scale = Vector2(6.2, 6.2)
-texture = ExtResource("3_qwyj6")
-
-[node name="TextureRect3" type="TextureRect" parent="StaticBody2D"]
-offset_left = 788.0
-offset_top = 341.0
-offset_right = 837.0
-offset_bottom = 454.0
-rotation = 3.13943
-scale = Vector2(6.16059, 6.2)
-texture = ExtResource("3_qwyj6")
-
-[node name="TextureRect4" type="TextureRect" parent="StaticBody2D"]
-offset_left = -577.778
-offset_top = 436.667
-offset_right = -528.778
-offset_bottom = 549.667
-rotation = 4.7116
-scale = Vector2(5.44016, 10.3598)
-texture = ExtResource("3_qwyj6")
-
-[node name="TextureRect5" type="TextureRect" parent="StaticBody2D"]
-offset_left = 588.0
-offset_top = -511.0
-offset_right = 637.0
-offset_bottom = -398.0
-rotation = 1.57078
-scale = Vector2(5.83999, 10.3598)
-texture = ExtResource("3_qwyj6")
-
-[node name="Chat3Couleur" parent="." instance=ExtResource("7_jcble")]
-position = Vector2(190.026, 80.2862)
-
+[connection signal="timeout" from="SourisSpawner/Timer" to="SourisSpawner" method="OnTimerTimeout"]
 [connection signal="timeout" from="PeloteSpawner/Timer" to="PeloteSpawner" method="OnTimerTimeout"]
 [connection signal="timeout" from="EnnemySpawner/Timer" to="EnnemySpawner" method="OnTimerTimeout"]

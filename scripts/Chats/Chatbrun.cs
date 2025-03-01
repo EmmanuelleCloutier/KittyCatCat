@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Chat3Couleur : CharacterBody2D
+public partial class Chatbrun : CharacterBody2D
 {
 	[Export] public int Speed = 100; 
 

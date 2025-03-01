@@ -22,7 +22,7 @@ public partial class EnnemySpawner : Node2D
 	
 	 private void OnTimerTimeout()
 	{
-		SpawnEnemies(2); 
+		SpawnEnemies(1); 
 	}
 
 	private void SpawnEnemies(int amount)
@@ -41,9 +41,9 @@ public partial class EnnemySpawner : Node2D
 
 		Node2D enemy = selectedEnemy.Instantiate<Node2D>();
 
-		Vector2 randomPosition = new Vector2(rng.RandfRange(-250, 250), rng.RandfRange(-125, 125));
+		Vector2 randomPosition = new Vector2(rng.RandfRange(100, 500), rng.RandfRange(100, 300));
 		enemy.Position = randomPosition;
 		AddChild(enemy);
+		
 	}
-
 }

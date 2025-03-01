@@ -13,7 +13,7 @@ public partial class yellow : Area2D
 		if (body.IsInGroup("Player"))
 		{
 			
-			GameManager.Instance.AddPoints(10);
+			GameManager.Instance.AddPoints(2);
 			QueueFree(); 
 		}
 	}

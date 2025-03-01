@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Chat3Couleur : CharacterBody2D
+public partial class Chatblanc : CharacterBody2D
 {
 	[Export] public int Speed = 100; 
 
@@ -24,7 +24,7 @@ public partial class Chat3Couleur : CharacterBody2D
 		}
 	}
 
-	public override void _PhysicsProcess(double delta)
+	 public override void _PhysicsProcess(double delta)
 {
 	if (player == null || !IsInstanceValid(player))
 	{

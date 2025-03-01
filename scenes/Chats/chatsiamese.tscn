@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://5b6tpiictlbh"]
+[gd_scene load_steps=19 format=3 uid="uid://5b6tpiictlbh"]
 
 [ext_resource type="Texture2D" uid="uid://drodqbxp2nj0y" path="res://assets/cats/Siamese/JumpCatttt.png" id="1_bbml5"]
+[ext_resource type="Script" path="res://scripts/Chats/Chatsiamese.cs" id="1_omijs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdjmi"]
 atlas = ExtResource("1_bbml5")
@@ -103,9 +104,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np3qt"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pg5lv"]
+
 [node name="Chatsiamese" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
+script = ExtResource("1_omijs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c70yo")
@@ -115,3 +119,12 @@ autoplay = "run"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 6)
 shape = SubResource("CircleShape2D_np3qt")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_pg5lv")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

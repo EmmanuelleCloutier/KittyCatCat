@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://cno727co4nhip"]
+[gd_scene load_steps=19 format=3 uid="uid://cno727co4nhip"]
 
 [ext_resource type="Texture2D" uid="uid://coyxlpkw28w8l" path="res://assets/cats/TigerCatFree/JumpCattt.png" id="1_k30m5"]
+[ext_resource type="Script" path="res://scripts/Chats/Chattigre.cs" id="1_ted2h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4gmp"]
 atlas = ExtResource("1_k30m5")
@@ -103,9 +104,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nbc15"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6qe6"]
+
 [node name="Chattigre" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
+script = ExtResource("1_ted2h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_63aq8")
@@ -115,3 +119,12 @@ autoplay = "run"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_nbc15")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_k6qe6")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

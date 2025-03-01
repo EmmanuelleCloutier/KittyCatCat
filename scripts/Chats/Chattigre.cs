@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Chat3Couleur : CharacterBody2D
+public partial class Chattigre : CharacterBody2D
 {
 	[Export] public int Speed = 100; 
 
@@ -19,9 +19,9 @@ public partial class Chat3Couleur : CharacterBody2D
 	{
 		player = GetTree().GetFirstNodeInGroup("Player") as CharacterBody2D;
 		 if (player != null)
-		{
-			GD.Print("Joueur trouvé à : " + player.Position);
-		}
+	{
+		GD.Print("Joueur trouvé à : " + player.Position);
+	}
 	}
 
 	public override void _PhysicsProcess(double delta)
