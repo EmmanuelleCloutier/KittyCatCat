@@ -129,6 +129,7 @@ Enemy6 = ExtResource("13_y2phg")
 Enemy7 = ExtResource("14_idcvv")
 
 [node name="Timer" type="Timer" parent="EnnemySpawner"]
+wait_time = 2.0
 autostart = true
 
 [node name="PeloteSpawner" type="Node2D" parent="."]
