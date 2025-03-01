@@ -34,6 +34,7 @@ func health_to_string() -> String:
 		
 func die():
 	print("player meurt")
+	get_tree().change_scene_to_file("res://scenes/LVL/endmenu.tscn")
 	queue_free()
 	
 func _ready():

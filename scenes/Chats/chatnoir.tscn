@@ -106,7 +106,7 @@ animations = [{
 radius = 12.0416
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ta7v"]
-radius = 12.0
+radius = 16.0
 
 [node name="Chatnoir" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)

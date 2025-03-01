@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://yyt7n0ohb51p"]
+[gd_scene load_steps=18 format=3 uid="uid://yyt7n0ohb51p"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_58jq7"]
 [ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="1_rvxb7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ba848wb6k2kqd" path="res://scenes/PeloteLaine/BLUEpelote.tscn" id="7_ihn32"]
 [ext_resource type="PackedScene" uid="uid://c3erpkc813g8y" path="res://scenes/Chats/chatblanc.tscn" id="7_kw4b8"]
 [ext_resource type="PackedScene" uid="uid://5b6tpiictlbh" path="res://scenes/Chats/chatsiamese.tscn" id="10_cvxsu"]
+[ext_resource type="FontFile" uid="uid://bxgriqlnojhjv" path="res://assets/fonts/PixelOperator8.ttf" id="11_4y4cn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_noebr"]
 atlas = ExtResource("1_xuqer")
@@ -82,7 +83,7 @@ position = Vector2(971, 450)
 scale = Vector2(-2, 2)
 
 [node name="Chatbrun" parent="chats" instance=ExtResource("6_5138n")]
-position = Vector2(313, 566)
+position = Vector2(523, 565.873)
 scale = Vector2(2, 2)
 
 [node name="CatBedBlue" type="Sprite2D" parent="chats"]
@@ -102,7 +103,7 @@ position = Vector2(821, 588)
 scale = Vector2(2, 2)
 
 [node name="BluePelote3" parent="chats" instance=ExtResource("7_ihn32")]
-position = Vector2(115, 526)
+position = Vector2(105, 442.987)
 scale = Vector2(2, 2)
 
 [node name="Label2" type="Label" parent="."]
@@ -166,6 +167,18 @@ frame_progress = 0.969497
 [node name="Chatsiamese" parent="." instance=ExtResource("10_cvxsu")]
 position = Vector2(781, 56)
 scale = Vector2(-2, 2)
+
+[node name="Credit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 528.214
+offset_right = 336.0
+offset_bottom = 563.214
+scale = Vector2(1.48781, 2.77874)
+theme_override_fonts/font = ExtResource("11_4y4cn")
+text = "Emmanuelle Cloutier 
+- Asset by (Handekaya23)
+"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

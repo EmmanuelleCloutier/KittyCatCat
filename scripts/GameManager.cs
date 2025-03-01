@@ -3,8 +3,8 @@ using System;
 
 public partial class GameManager : Node
 {
-	private int score = 0;  // Variable de score
-	public static GameManager Instance {get; private set;}  // Propriété statique
+	private int score = 0; 
+	public static GameManager Instance {get; private set;}  
 
 	public override void _Ready()
 	{
@@ -34,5 +34,10 @@ public partial class GameManager : Node
 	public int GetScore()
 	{
 		return score;
+	}
+	
+	public void ResetScore()
+	{
+		score = 0; 
 	}
 }

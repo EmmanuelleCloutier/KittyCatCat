@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bkf10v7jneoek"]
+[gd_scene load_steps=24 format=3 uid="uid://bkf10v7jneoek"]
 
 [ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="1_5n473"]
 [ext_resource type="Texture2D" uid="uid://dyrepwsxjqkrb" path="res://assets/environnement/cote.png" id="2_yhhia"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/Player/player.tscn" id="4_s2p1l"]
 [ext_resource type="PackedScene" uid="uid://ccqqaga21vf30" path="res://scenes/Player/Projectile.tscn" id="5_1ti2q"]
 [ext_resource type="PackedScene" uid="uid://d3av1uj0k2ish" path="res://scenes/hud/HUD.tscn" id="6_m6xo5"]
+[ext_resource type="AudioStream" uid="uid://dku4gafjnqwx1" path="res://assets/groovy-ambient-funk-201745.mp3" id="7_qc0a8"]
 [ext_resource type="Script" path="res://scripts/Chats/EnnemySpawner.cs" id="7_xc2ae"]
 [ext_resource type="PackedScene" uid="uid://ip3ougvlnyhw" path="res://scenes/Chats/chat3couleur.tscn" id="8_j48uv"]
 [ext_resource type="PackedScene" uid="uid://c3erpkc813g8y" path="res://scenes/Chats/chatblanc.tscn" id="9_mea5k"]
@@ -20,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c6kvisvh5u5k6" path="res://scenes/PeloteLaine/YELLOWpelote.tscn" id="18_qi0jv"]
 [ext_resource type="Script" path="res://scripts/Player/SourisSpawner.cs" id="19_nch0f"]
 [ext_resource type="PackedScene" uid="uid://cnw1nww0y373a" path="res://scenes/Player/souris.tscn" id="20_ayija"]
+[ext_resource type="Script" path="res://scenes/LVL/Reseting.cs" id="21_mqp8b"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tn27u"]
 a = Vector2(0.999969, -574)
@@ -110,6 +112,12 @@ zoom = Vector2(4, 4)
 
 [node name="Hud" parent="Player" instance=ExtResource("6_m6xo5")]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-567.284, -334.306)
+scale = Vector2(2, 2)
+stream = ExtResource("7_qc0a8")
+autoplay = true
+
 [node name="EnnemySpawner" type="Node2D" parent="."]
 script = ExtResource("7_xc2ae")
 Enemy1 = ExtResource("8_j48uv")
@@ -140,6 +148,9 @@ MouseScene = ExtResource("20_ayija")
 [node name="Timer" type="Timer" parent="SourisSpawner"]
 wait_time = 10.0
 autostart = true
+
+[node name="Reseting" type="Node" parent="."]
+script = ExtResource("21_mqp8b")
 
 [connection signal="timeout" from="EnnemySpawner/Timer" to="EnnemySpawner" method="OnTimerTimeout"]
 [connection signal="timeout" from="PeloteSpawner/Timer" to="PeloteSpawner" method="OnTimerTimeout"]

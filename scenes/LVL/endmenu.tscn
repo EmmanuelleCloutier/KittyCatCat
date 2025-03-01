@@ -1,0 +1,142 @@
+[gd_scene load_steps=12 format=3 uid="uid://cb1o55ygda0l7"]
+
+[ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_2d2hp"]
+[ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="2_4t537"]
+[ext_resource type="Script" path="res://scripts/hud/Points.cs" id="5_73stp"]
+[ext_resource type="FontFile" uid="uid://cvhpjbvm3fgvy" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="8_i04bx"]
+[ext_resource type="Texture2D" uid="uid://f0yj8w64xtlw" path="res://assets/environnement/FreeHorrorUi.png" id="9_24bgq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ibk6"]
+atlas = ExtResource("9_24bgq")
+region = Rect2(0, 224, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6sun"]
+atlas = ExtResource("9_24bgq")
+region = Rect2(64, 224, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4s35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ibk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6sun")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxlig"]
+atlas = ExtResource("9_24bgq")
+region = Rect2(0, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qed6g"]
+atlas = ExtResource("9_24bgq")
+region = Rect2(64, 192, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6d0xm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxlig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qed6g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="endmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1, 1.00906)
+script = ExtResource("1_2d2hp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -610.0
+offset_top = -366.0
+offset_right = -10.0
+offset_bottom = 234.0
+scale = Vector2(5.54833, 3.718)
+texture = ExtResource("2_4t537")
+stretch_mode = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 48.6409
+offset_right = 1143.0
+offset_bottom = 149.641
+theme_override_colors/font_color = Color(0.0862745, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_i04bx")
+theme_override_font_sizes/font_size = 85
+text = "Kitty CAT CAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 39.6409
+offset_right = 1158.0
+offset_bottom = 140.641
+theme_override_fonts/font = ExtResource("8_i04bx")
+theme_override_font_sizes/font_size = 85
+text = "Kitty CAT CAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 318)
+
+[node name="play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 44.0
+offset_top = 393.435
+offset_right = 84.0
+offset_bottom = 436.435
+scale = Vector2(6.52845, 1.30176)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="play"]
+position = Vector2(18.4906, 17.3913)
+scale = Vector2(0.765, 3.5)
+sprite_frames = SubResource("SpriteFrames_s4s35")
+autoplay = "default"
+frame_progress = 0.216116
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 37.0
+offset_top = 480.645
+offset_right = 77.0
+offset_bottom = 523.645
+scale = Vector2(6.32, 1.20575)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="exit"]
+position = Vector2(20.4717, 16.3043)
+scale = Vector2(0.768, 3.53)
+sprite_frames = SubResource("SpriteFrames_6d0xm")
+autoplay = "default"
+frame_progress = 0.969497
+
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("scoreLabel")]
+position = Vector2(348, 314.154)
+script = ExtResource("5_73stp")
+scoreLabel = NodePath("Score")
+
+[node name="Score" type="Label" parent="Node2D"]
+offset_left = -13.0
+offset_top = -107.903
+offset_right = 465.0
+offset_bottom = -21.9035
+theme_override_fonts/font = ExtResource("8_i04bx")
+theme_override_font_sizes/font_size = 85
+text = "points"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

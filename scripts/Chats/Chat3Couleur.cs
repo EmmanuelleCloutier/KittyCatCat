@@ -21,33 +21,34 @@ public partial class Chat3Couleur : CharacterBody2D
 	}
 
 	public override void _PhysicsProcess(double delta)
-{
-	if (player == null || !IsInstanceValid(player))
 	{
-		player = GetTree().GetFirstNodeInGroup("Player") as CharacterBody2D;
-	}
+		if (player == null || !IsInstanceValid(player))
+		{
+			player = GetTree().GetFirstNodeInGroup("Player") as CharacterBody2D;
+		}
 
-	if (player == null) return;
+		if (player == null) return;
 
-	// Calcule la direction
-	Vector2 direction = (player.Position - Position).Normalized();
+		// Calcule la direction
+		Vector2 direction = (player.Position - Position).Normalized();
+		
+		// Mets à jour la vélocité de l'ennemi
+		Velocity = direction * Speed;
+
+
+		// Déplace l'ennemi
+		MoveAndSlide();
 	
-	// Mets à jour la vélocité de l'ennemi
-	Velocity = direction * Speed;
-
-	// Applique le mouvement
-	MoveAndSlide();
-
-	// Retourne l'ennemi si nécessaire
-	if (direction.X < 0)
-	{
-		animatedSprite.Scale = new Vector2(-1, 1); // Retourne l'ennemi à gauche
+		// Retourne l'ennemi si nécessaire
+		if (direction.X < 0)
+		{
+			animatedSprite.Scale = new Vector2(-1, 1); // Retourne l'ennemi à gauche
+		}
+		else if (direction.X > 0)
+		{
+			animatedSprite.Scale = new Vector2(1, 1); // Retourne l'ennemi à droite
+		}
 	}
-	else if (direction.X > 0)
-	{
-		animatedSprite.Scale = new Vector2(1, 1); // Retourne l'ennemi à droite
-	}
-}
 
 	public void OnBodyEntered(Node body)
 	{
