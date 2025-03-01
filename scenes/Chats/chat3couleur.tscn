@@ -3,6 +3,12 @@
 [ext_resource type="Script" path="res://scripts/Chats/Chat3Couleur.cs" id="1_bn332"]
 [ext_resource type="Texture2D" uid="uid://bpwljpgni5nj1" path="res://assets/cats/ThreeColorFree/JumpCattt.png" id="1_ug0t7"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_edbog"]
+radius = 2.23607
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yd5pq"]
+radius = 18.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_m4o2i"]
 atlas = ExtResource("1_ug0t7")
 region = Rect2(0, 0, 32, 32)
@@ -102,21 +108,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_edbog"]
-radius = 2.23607
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yd5pq"]
-radius = 18.0
-
 [node name="Chat3Couleur" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 script = ExtResource("1_bn332")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_dwmab")
-animation = &"run"
-autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -128,5 +123,9 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_yd5pq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dwmab")
+animation = &"run"
 
 [connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

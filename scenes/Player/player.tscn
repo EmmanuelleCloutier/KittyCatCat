@@ -172,4 +172,5 @@ shape = SubResource("CircleShape2D_qvdqt")
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_8smgg")
 animation = &"run"
-autoplay = "idle"
+autoplay = "run"
+frame_progress = 0.160419

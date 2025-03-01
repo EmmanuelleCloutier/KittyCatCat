@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://m0ts8xrx4h6f"]
+
+[ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="2_csls4"]
+[ext_resource type="PackedScene" uid="uid://ip3ougvlnyhw" path="res://scenes/Chats/chat3couleur.tscn" id="3_ctqrn"]
+[ext_resource type="PackedScene" uid="uid://c3erpkc813g8y" path="res://scenes/Chats/chatblanc.tscn" id="4_5ghck"]
+[ext_resource type="PackedScene" uid="uid://ias32umk4wpb" path="res://scenes/Chats/chatbrun.tscn" id="5_vm1xy"]
+[ext_resource type="PackedScene" uid="uid://csv04jvlw72ci" path="res://scenes/Chats/chatclassique.tscn" id="6_ny8hn"]
+[ext_resource type="PackedScene" uid="uid://75pwoybh3t12" path="res://scenes/Chats/chatnoir.tscn" id="7_cqwti"]
+[ext_resource type="PackedScene" uid="uid://5b6tpiictlbh" path="res://scenes/Chats/chatsiamese.tscn" id="8_efxt3"]
+[ext_resource type="PackedScene" uid="uid://cno727co4nhip" path="res://scenes/Chats/chattigre.tscn" id="9_mw4ic"]
+[ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/Player/player.tscn" id="10_246d2"]
+
+[node name="Photo" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_csls4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="allcat" type="Node2D" parent="."]
+
+[node name="Chat3Couleur" parent="allcat" instance=ExtResource("3_ctqrn")]
+visible = false
+position = Vector2(71, 137)
+scale = Vector2(2, 2)
+script = null
+
+[node name="Chatblanc" parent="allcat" instance=ExtResource("4_5ghck")]
+visible = false
+position = Vector2(126, 138)
+scale = Vector2(2, 2)
+script = null
+
+[node name="Chatbrun" parent="allcat" instance=ExtResource("5_vm1xy")]
+visible = false
+position = Vector2(93, 173)
+scale = Vector2(2, 2)
+script = null
+
+[node name="Chatclassique" parent="allcat" instance=ExtResource("6_ny8hn")]
+visible = false
+position = Vector2(149, 174)
+scale = Vector2(2, 2)
+script = null
+
+[node name="Chatnoir" parent="allcat" instance=ExtResource("7_cqwti")]
+visible = false
+position = Vector2(332, 142)
+scale = Vector2(-2, 2)
+script = null
+
+[node name="Chatsiamese" parent="allcat" instance=ExtResource("8_efxt3")]
+visible = false
+position = Vector2(382, 142)
+scale = Vector2(-2, 2)
+script = null
+
+[node name="Chattigre" parent="allcat" instance=ExtResource("9_mw4ic")]
+visible = false
+position = Vector2(356, 173)
+scale = Vector2(-2, 2)
+script = null
+
+[node name="Player" parent="allcat" instance=ExtResource("10_246d2")]
+position = Vector2(251, 203)
+scale = Vector2(5, 5)
+script = null
