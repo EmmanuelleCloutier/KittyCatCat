@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bkf10v7jneoek"]
+[gd_scene load_steps=22 format=3 uid="uid://bkf10v7jneoek"]
 
 [ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/Player/player.tscn" id="1_mej1e"]
 [ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="2_nybvc"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://75pwoybh3t12" path="res://scenes/Chats/chatnoir.tscn" id="11_onhpb"]
 [ext_resource type="PackedScene" uid="uid://5b6tpiictlbh" path="res://scenes/Chats/chatsiamese.tscn" id="12_idkhd"]
 [ext_resource type="PackedScene" uid="uid://cno727co4nhip" path="res://scenes/Chats/chattigre.tscn" id="13_h4gym"]
+[ext_resource type="PackedScene" uid="uid://d354f2yfhfipe" path="res://scenes/Stopwatch.tscn" id="17_ob8il"]
+[ext_resource type="PackedScene" uid="uid://bru1hunsex1pv" path="res://scenes/HUD.tscn" id="20_ig2b0"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tn27u"]
 a = Vector2(0.999969, -574)
@@ -124,6 +126,8 @@ Enemy7 = ExtResource("13_h4gym")
 [node name="Timer" type="Timer" parent="EnnemySpawner"]
 autostart = true
 
+[node name="Stopwatch" parent="." instance=ExtResource("17_ob8il")]
+
 [node name="Player" parent="." instance=ExtResource("1_mej1e")]
 position = Vector2(283.642, 167.153)
 scale = Vector2(0.5, 0.5)
@@ -134,6 +138,8 @@ position = Vector2(-0.000196815, 0.000347376)
 rotation = 3.14159
 scale = Vector2(519.631, 765.856)
 zoom = Vector2(4, 4)
+
+[node name="Hud" parent="Player" instance=ExtResource("20_ig2b0")]
 
 [connection signal="timeout" from="SourisSpawner/Timer" to="SourisSpawner" method="OnTimerTimeout"]
 [connection signal="timeout" from="PeloteSpawner/Timer" to="PeloteSpawner" method="OnTimerTimeout"]

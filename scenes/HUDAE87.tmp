@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://bru1hunsex1pv"]
 
-[ext_resource type="Script" path="res://scenes/hud.gd" id="1_n13xs"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_nwsdy"]
 [ext_resource type="FontFile" uid="uid://cvhpjbvm3fgvy" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_is2p0"]
 
-[node name="Hud" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_n13xs")
+[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("stopwatch_label", "score_label")]
+script = ExtResource("1_nwsdy")
+stopwatch_label = NodePath("Chrono")
+score_label = NodePath("Points")
 
 [node name="Chrono" type="Label" parent="."]
 offset_left = 463.0
 offset_top = 27.0
-offset_right = 599.0
+offset_right = 583.0
 offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("2_is2p0")
 theme_override_font_sizes/font_size = 16

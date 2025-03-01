@@ -4,17 +4,18 @@ using System;
 public partial class GameManager : Node
 {
 	private int score = 0;  // Variable de score
-	public static GameManager Instance;  // Propriété statique
+	public static GameManager Instance {get; private set;}  // Propriété statique
 
 	public override void _Ready()
 	{
 		if (Instance == null)
 		{
-			Instance = this;  // Initialisation de l'instance
+			Instance = this; 
 			GD.Print("GameManager initialisé");
 		}
 		else
 		{
+			QueueFree(); 
 			GD.Print("Une instance de GameManager existe déjà !");
 		}
 	}

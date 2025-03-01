@@ -1,25 +1,54 @@
 using Godot;
 using System;
 
-public partial class HUD : CanvasLayer
+public class Hud : Node2D
 {
-	 private Label scoreLabel;
-	private int score = 0;
+	[Export] public Label stopwatchLabel;
+	[Export] public Label scoreLabel;
+
+	private Stopwatch stopwatch; 
 
 	public override void _Ready()
 	{
-		scoreLabel = GetNode<Label>("ScoreLabel");
+		
+		stopwatch = GetNode<Stopwatch>("Stopwatch"); 
+
+		if (stopwatch != null)
+		{
+			GD.Print("Stopwatch trouvé");
+		}
+		else
+		{
+			GD.Print("Aucune instance de Stopwatch trouvee");
+		}
+
+		if (GameManager.Instance != null)
+		{
+			GD.Print("gamemanager est accessible");
+		}
+		else
+		{
+			GD.Print("Aucune instance de game manager trouvee");
+		}
+	}
+
+	public override void Process(float delta)
+	{
+		UpdateStopwatchLabel();
 		UpdateScoreLabel();
 	}
 
-	public void AddScore(int amount)
+	private void UpdateStopwatchLabel()
 	{
-		score += amount;
-		UpdateScoreLabel();
+		if (stopwatch != null)
+		{
+			stopwatchLabel.Text = stopwatch.TimeToString(); 
+		}
 	}
 
 	private void UpdateScoreLabel()
 	{
-		scoreLabel.Text = $"Score: {score}";
+		scoreLabel.Text = "Score: " + GameManager.Instance.GetScore().ToString();
+		GD.Print("into updated score fonction");
 	}
 }
