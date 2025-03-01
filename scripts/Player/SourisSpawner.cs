@@ -21,7 +21,7 @@ public partial class SourisSpawner : Node2D
 	private void SpawnMouse()
 	{
 		Node2D mouse = MouseScene.Instantiate<Node2D>();
-		Vector2 randomPosition = new Vector2(rng.RandfRange(100, 500), rng.RandfRange(100, 300));
+		Vector2 randomPosition = new Vector2(rng.RandfRange(0, 500), rng.RandfRange(20, 150));
 		mouse.Position = randomPosition;
 
 		GD.Print("Mouse is running around"); 

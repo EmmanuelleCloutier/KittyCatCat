@@ -37,7 +37,7 @@ public partial class PeloteSpawner : Node2D
 		
 		Node2D coin = selectedCoin.Instantiate<Node2D>();
 		
-		Vector2 randomPosition = new Vector2(rng.RandfRange(100,500), rng.RandfRange(100,300));
+		Vector2 randomPosition = new Vector2(rng.RandfRange(0, 500), rng.RandfRange(20, 150));
 		
 		coin.Position = randomPosition;
 		AddChild(coin);

@@ -48,14 +48,15 @@ script = ExtResource("2_c5q5w")
 stopwatch_label = NodePath("../Panel/Chrono")
 vielabel = NodePath("../Panel/Vie")
 
-[node name="Points" type="Node" parent="."]
+[node name="Points" type="Node" parent="." node_paths=PackedStringArray("scoreLabel")]
 script = ExtResource("2_642bb")
+scoreLabel = NodePath("../Panel/ScoreLabel")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1152.0
 offset_bottom = 130.0
 
-[node name="Points" type="Label" parent="Panel"]
+[node name="ScoreLabel" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 879.0
 offset_top = 44.0

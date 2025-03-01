@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=3 uid="uid://bkf10v7jneoek"]
+
+[ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="1_5n473"]
+[ext_resource type="Texture2D" uid="uid://dyrepwsxjqkrb" path="res://assets/environnement/cote.png" id="2_yhhia"]
+[ext_resource type="PackedScene" uid="uid://cmxip32h1cu24" path="res://scenes/hud/stopwatch.tscn" id="3_nenol"]
+[ext_resource type="PackedScene" uid="uid://doanwcepb86vv" path="res://scenes/Player/player.tscn" id="4_s2p1l"]
+[ext_resource type="PackedScene" uid="uid://ccqqaga21vf30" path="res://scenes/Player/Projectile.tscn" id="5_1ti2q"]
+[ext_resource type="PackedScene" uid="uid://d3av1uj0k2ish" path="res://scenes/hud/HUD.tscn" id="6_m6xo5"]
+[ext_resource type="Script" path="res://scripts/Chats/EnnemySpawner.cs" id="7_xc2ae"]
+[ext_resource type="PackedScene" uid="uid://ip3ougvlnyhw" path="res://scenes/Chats/chat3couleur.tscn" id="8_j48uv"]
+[ext_resource type="PackedScene" uid="uid://c3erpkc813g8y" path="res://scenes/Chats/chatblanc.tscn" id="9_mea5k"]
+[ext_resource type="PackedScene" uid="uid://ias32umk4wpb" path="res://scenes/Chats/chatbrun.tscn" id="10_wv3c5"]
+[ext_resource type="PackedScene" uid="uid://csv04jvlw72ci" path="res://scenes/Chats/chatclassique.tscn" id="11_8j3xm"]
+[ext_resource type="PackedScene" uid="uid://75pwoybh3t12" path="res://scenes/Chats/chatnoir.tscn" id="12_sajfp"]
+[ext_resource type="PackedScene" uid="uid://5b6tpiictlbh" path="res://scenes/Chats/chatsiamese.tscn" id="13_y2phg"]
+[ext_resource type="PackedScene" uid="uid://cno727co4nhip" path="res://scenes/Chats/chattigre.tscn" id="14_idcvv"]
+[ext_resource type="Script" path="res://scripts/Pelote/PeloteSpawner.cs" id="15_ba7bc"]
+[ext_resource type="PackedScene" uid="uid://c1cnb38fm7avq" path="res://scenes/PeloteLaine/PINKpelote.tscn" id="16_fv5wj"]
+[ext_resource type="PackedScene" uid="uid://ba848wb6k2kqd" path="res://scenes/PeloteLaine/BLUEpelote.tscn" id="17_s8v6s"]
+[ext_resource type="PackedScene" uid="uid://c6kvisvh5u5k6" path="res://scenes/PeloteLaine/YELLOWpelote.tscn" id="18_qi0jv"]
+[ext_resource type="Script" path="res://scripts/Player/SourisSpawner.cs" id="19_nch0f"]
+[ext_resource type="PackedScene" uid="uid://cnw1nww0y373a" path="res://scenes/Player/souris.tscn" id="20_ayija"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tn27u"]
+a = Vector2(0.999969, -574)
+b = Vector2(-0.999969, 579)
+
+[node name="Game" type="Node2D"]
+position = Vector2(-8, -3)
+scale = Vector2(2.14707, 2.27935)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -4.65751
+offset_top = -52.2079
+offset_right = 2495.34
+offset_bottom = 2447.79
+scale = Vector2(0.221491, 0.144761)
+texture = ExtResource("1_5n473")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
+position = Vector2(1285.1, 1283.23)
+scale = Vector2(2.25743, 3.45397)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(-533, 2)
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(540, 5)
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(-5.96046e-08, -260)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(3.7037, 220)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_tn27u")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/StaticBody2D"]
+offset_left = -797.0
+offset_top = -337.0
+offset_right = -748.0
+offset_bottom = -224.0
+scale = Vector2(6.2, 6.2)
+texture = ExtResource("2_yhhia")
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/StaticBody2D"]
+offset_left = 788.0
+offset_top = 341.0
+offset_right = 837.0
+offset_bottom = 454.0
+rotation = 3.13943
+scale = Vector2(6.16059, 6.2)
+texture = ExtResource("2_yhhia")
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect/StaticBody2D"]
+offset_left = -577.778
+offset_top = 436.667
+offset_right = -528.778
+offset_bottom = 549.667
+rotation = 4.7116
+scale = Vector2(5.44016, 10.3598)
+texture = ExtResource("2_yhhia")
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect/StaticBody2D"]
+offset_left = 588.0
+offset_top = -511.0
+offset_right = 637.0
+offset_bottom = -398.0
+rotation = 1.57078
+scale = Vector2(5.83999, 10.3598)
+texture = ExtResource("2_yhhia")
+
+[node name="Stopwatch" parent="." instance=ExtResource("3_nenol")]
+
+[node name="Player" parent="." instance=ExtResource("4_s2p1l")]
+position = Vector2(283.642, 167.153)
+scale = Vector2(0.5, 0.5)
+projectile_scene = ExtResource("5_1ti2q")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-0.00012207, 0.000335693)
+rotation = 3.14159
+scale = Vector2(519.631, 765.856)
+zoom = Vector2(4, 4)
+
+[node name="Hud" parent="Player" instance=ExtResource("6_m6xo5")]
+
+[node name="EnnemySpawner" type="Node2D" parent="."]
+script = ExtResource("7_xc2ae")
+Enemy1 = ExtResource("8_j48uv")
+Enemy2 = ExtResource("9_mea5k")
+Enemy3 = ExtResource("10_wv3c5")
+Enemy4 = ExtResource("11_8j3xm")
+Enemy5 = ExtResource("12_sajfp")
+Enemy6 = ExtResource("13_y2phg")
+Enemy7 = ExtResource("14_idcvv")
+
+[node name="Timer" type="Timer" parent="EnnemySpawner"]
+autostart = true
+
+[node name="PeloteSpawner" type="Node2D" parent="."]
+script = ExtResource("15_ba7bc")
+PINKpelote = ExtResource("16_fv5wj")
+BLUEpelote = ExtResource("17_s8v6s")
+YELLOWpelote = ExtResource("18_qi0jv")
+
+[node name="Timer" type="Timer" parent="PeloteSpawner"]
+wait_time = 5.0
+autostart = true
+
+[node name="SourisSpawner" type="Node2D" parent="."]
+script = ExtResource("19_nch0f")
+MouseScene = ExtResource("20_ayija")
+
+[node name="Timer" type="Timer" parent="SourisSpawner"]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="EnnemySpawner/Timer" to="EnnemySpawner" method="OnTimerTimeout"]
+[connection signal="timeout" from="PeloteSpawner/Timer" to="PeloteSpawner" method="OnTimerTimeout"]
+[connection signal="timeout" from="SourisSpawner/Timer" to="SourisSpawner" method="OnTimerTimeout"]

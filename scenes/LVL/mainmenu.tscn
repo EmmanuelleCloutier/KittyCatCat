@@ -1,0 +1,171 @@
+[gd_scene load_steps=17 format=3 uid="uid://yyt7n0ohb51p"]
+
+[ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_58jq7"]
+[ext_resource type="Texture2D" uid="uid://c8ehbwncwq21u" path="res://assets/environnement/Sprite_background.png" id="1_rvxb7"]
+[ext_resource type="Texture2D" uid="uid://f0yj8w64xtlw" path="res://assets/environnement/FreeHorrorUi.png" id="1_xuqer"]
+[ext_resource type="FontFile" uid="uid://cvhpjbvm3fgvy" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_uadab"]
+[ext_resource type="Texture2D" uid="uid://cvop3yg8c0pdj" path="res://assets/materials/CatBedBlue.png" id="3_rvnwf"]
+[ext_resource type="PackedScene" uid="uid://ip3ougvlnyhw" path="res://scenes/Chats/chat3couleur.tscn" id="4_ceo4t"]
+[ext_resource type="PackedScene" uid="uid://ias32umk4wpb" path="res://scenes/Chats/chatbrun.tscn" id="6_5138n"]
+[ext_resource type="PackedScene" uid="uid://ba848wb6k2kqd" path="res://scenes/PeloteLaine/BLUEpelote.tscn" id="7_ihn32"]
+[ext_resource type="PackedScene" uid="uid://c3erpkc813g8y" path="res://scenes/Chats/chatblanc.tscn" id="7_kw4b8"]
+[ext_resource type="PackedScene" uid="uid://5b6tpiictlbh" path="res://scenes/Chats/chatsiamese.tscn" id="10_cvxsu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noebr"]
+atlas = ExtResource("1_xuqer")
+region = Rect2(0, 128, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxcd5"]
+atlas = ExtResource("1_xuqer")
+region = Rect2(64, 128, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4s35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noebr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxcd5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxlig"]
+atlas = ExtResource("1_xuqer")
+region = Rect2(0, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qed6g"]
+atlas = ExtResource("1_xuqer")
+region = Rect2(64, 192, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6d0xm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxlig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qed6g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1, 1.00906)
+script = ExtResource("1_58jq7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -610.0
+offset_top = -366.0
+offset_right = -10.0
+offset_bottom = 234.0
+scale = Vector2(5.54833, 3.718)
+texture = ExtResource("1_rvxb7")
+stretch_mode = 1
+
+[node name="chats" type="Node2D" parent="."]
+
+[node name="Chat3Couleur" parent="chats" instance=ExtResource("4_ceo4t")]
+position = Vector2(137, 241)
+scale = Vector2(2, 2)
+
+[node name="Chatblanc" parent="chats" instance=ExtResource("7_kw4b8")]
+position = Vector2(971, 450)
+scale = Vector2(-2, 2)
+
+[node name="Chatbrun" parent="chats" instance=ExtResource("6_5138n")]
+position = Vector2(313, 566)
+scale = Vector2(2, 2)
+
+[node name="CatBedBlue" type="Sprite2D" parent="chats"]
+position = Vector2(958, 603)
+texture = ExtResource("3_rvnwf")
+
+[node name="CatBedBlue2" type="Sprite2D" parent="chats"]
+position = Vector2(58, 39)
+texture = ExtResource("3_rvnwf")
+
+[node name="BluePelote" parent="chats" instance=ExtResource("7_ihn32")]
+position = Vector2(780, 184)
+scale = Vector2(2, 2)
+
+[node name="BluePelote2" parent="chats" instance=ExtResource("7_ihn32")]
+position = Vector2(821, 588)
+scale = Vector2(2, 2)
+
+[node name="BluePelote3" parent="chats" instance=ExtResource("7_ihn32")]
+position = Vector2(115, 526)
+scale = Vector2(2, 2)
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 101.0
+offset_right = 1138.0
+offset_bottom = 202.0
+theme_override_colors/font_color = Color(0.0862745, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uadab")
+theme_override_font_sizes/font_size = 85
+text = "Kitty CAT CAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 92.0
+offset_right = 1153.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("2_uadab")
+theme_override_font_sizes/font_size = 85
+text = "Kitty CAT CAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 318)
+
+[node name="play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 330.0
+offset_top = 294.0
+offset_right = 370.0
+offset_bottom = 337.0
+scale = Vector2(10.6, 1.84)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="play"]
+position = Vector2(18.4906, 17.3913)
+scale = Vector2(0.765, 3.5)
+sprite_frames = SubResource("SpriteFrames_s4s35")
+autoplay = "default"
+frame_progress = 0.216116
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 316.0
+offset_top = 435.0
+offset_right = 356.0
+offset_bottom = 478.0
+scale = Vector2(10.6, 1.84)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="exit"]
+position = Vector2(20.4717, 16.3043)
+scale = Vector2(0.768, 3.53)
+sprite_frames = SubResource("SpriteFrames_6d0xm")
+autoplay = "default"
+frame_progress = 0.969497
+
+[node name="Chatsiamese" parent="." instance=ExtResource("10_cvxsu")]
+position = Vector2(781, 56)
+scale = Vector2(-2, 2)
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
