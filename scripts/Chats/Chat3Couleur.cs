@@ -18,10 +18,6 @@ public partial class Chat3Couleur : CharacterBody2D
 	private void FindPlayer()
 	{
 		player = GetTree().GetFirstNodeInGroup("Player") as CharacterBody2D;
-		 if (player != null)
-		{
-			GD.Print("Joueur trouvé à : " + player.Position);
-		}
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -53,13 +49,18 @@ public partial class Chat3Couleur : CharacterBody2D
 	}
 }
 
-	
 	public void OnBodyEntered(Node body)
 	{
 		if(body.IsInGroup("Player"))
 		{
-			QueueFree(); 
-			GD.Print("L'ennemi a touché le joueur et a été détruit !");
+			var playerScript = body as CharacterBody2D;  
+			if (playerScript != null)
+			{
+				playerScript.Call("take_damage");  
+			}
+
+			GD.Print("L'ennemi a touché le joueur !");
+			TakeDamage();  
 		}
 	}
 

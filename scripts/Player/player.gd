@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var projectile_scene: PackedScene
 @export var projectile_offset := Vector2(10,0)
 
+@export var max_health = 5
+var current_health = max_health
+
 #event pour detecter si player tire avec espace 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
@@ -20,6 +23,19 @@ func shoot():
 	projectile.global_position = global_position + Vector2(projectile_offset.x * (-1 if animated_sprite.flip_h else 1), projectile_offset.y)
 	projectile.direction = Vector2.LEFT if animated_sprite.flip_h else Vector2.RIGHT
 
+func take_damage():
+	current_health = current_health - 1
+	if current_health <= 0:
+		die()
+
+func health_to_string() -> String:
+	var health_string = str(current_health)
+	return health_string
+		
+func die():
+	print("player meurt")
+	queue_free()
+	
 func _ready():
 	add_to_group("Player")
 	

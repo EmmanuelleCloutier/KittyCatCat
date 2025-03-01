@@ -41,7 +41,7 @@ public partial class EnnemySpawner : Node2D
 
 		Node2D enemy = selectedEnemy.Instantiate<Node2D>();
 
-		Vector2 randomPosition = new Vector2(rng.RandfRange(100, 500), rng.RandfRange(100, 300));
+		Vector2 randomPosition = new Vector2(rng.RandfRange(50, 500), rng.RandfRange(50, 250));
 		enemy.Position = randomPosition;
 		AddChild(enemy);
 		

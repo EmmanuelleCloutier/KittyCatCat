@@ -103,8 +103,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cdnh"]
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpl1j"]
+radius = 12.0
 
 [node name="Chatblanc" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -124,7 +126,7 @@ shape = SubResource("CircleShape2D_3cdnh")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 6)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_jpl1j")
 
 [connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

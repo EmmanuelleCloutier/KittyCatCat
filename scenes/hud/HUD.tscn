@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3av1uj0k2ish"]
+
+[ext_resource type="FontFile" uid="uid://cvhpjbvm3fgvy" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_dll5b"]
+[ext_resource type="Script" path="res://scripts/hud/Points.cs" id="2_642bb"]
+[ext_resource type="Script" path="res://scripts/hud/HUD.gd" id="2_c5q5w"]
+[ext_resource type="Texture2D" uid="uid://f0yj8w64xtlw" path="res://assets/environnement/FreeHorrorUi.png" id="3_0m3cm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn3hb"]
+atlas = ExtResource("3_0m3cm")
+region = Rect2(128, 100, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4vef"]
+atlas = ExtResource("3_0m3cm")
+region = Rect2(160, 100, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnm30"]
+atlas = ExtResource("3_0m3cm")
+region = Rect2(192, 100, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm7ib"]
+atlas = ExtResource("3_0m3cm")
+region = Rect2(160, 100, 32, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ya2xw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn3hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4vef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnm30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm7ib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="Chrono" type="Node" parent="." node_paths=PackedStringArray("stopwatch_label", "vielabel")]
+script = ExtResource("2_c5q5w")
+stopwatch_label = NodePath("../Panel/Chrono")
+vielabel = NodePath("../Panel/Vie")
+
+[node name="Points" type="Node" parent="."]
+script = ExtResource("2_642bb")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 130.0
+
+[node name="Points" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 44.0
+offset_right = 1048.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("1_dll5b")
+theme_override_font_sizes/font_size = 30
+text = "points
+"
+horizontal_alignment = 2
+
+[node name="Chrono" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 27.0
+offset_right = 729.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("1_dll5b")
+theme_override_font_sizes/font_size = 32
+text = "00:00:000
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Vie" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 9.0
+offset_right = 217.0
+offset_bottom = 32.0
+scale = Vector2(4.66329, 4.93269)
+theme_override_fonts/font = ExtResource("1_dll5b")
+text = "5
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="x" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 8.0
+offset_right = 113.0
+offset_bottom = 31.0
+scale = Vector2(4.66329, 4.93269)
+theme_override_fonts/font = ExtResource("1_dll5b")
+text = "x
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(77, 65)
+scale = Vector2(4.72, 5.04)
+sprite_frames = SubResource("SpriteFrames_ya2xw")
+autoplay = "default"
+frame_progress = 0.159299
