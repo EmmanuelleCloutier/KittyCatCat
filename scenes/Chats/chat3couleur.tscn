@@ -127,5 +127,6 @@ shape = SubResource("CircleShape2D_yd5pq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dwmab")
 animation = &"run"
+autoplay = "run"
 
 [connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]
