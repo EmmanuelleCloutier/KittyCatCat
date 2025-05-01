@@ -41,24 +41,24 @@ texture = ExtResource("1_5n473")
 stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
-position = Vector2(1285.1, 1283.23)
+position = Vector2(1285, 1285)
 scale = Vector2(2.25743, 3.45397)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
-position = Vector2(-533, 2)
+[node name="A" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(-540, 0)
 shape = SubResource("SegmentShape2D_tn27u")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+[node name="D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
 position = Vector2(540, 5)
 shape = SubResource("SegmentShape2D_tn27u")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+[node name="B" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
 position = Vector2(-5.96046e-08, -260)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_tn27u")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
-position = Vector2(3.7037, 220)
+[node name="C" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(3.5, 220)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_tn27u")
 
@@ -119,6 +119,7 @@ stream = ExtResource("7_qc0a8")
 autoplay = true
 
 [node name="EnnemySpawner" type="Node2D" parent="."]
+scale = Vector2(1, 1)
 script = ExtResource("7_xc2ae")
 Enemy1 = ExtResource("8_j48uv")
 Enemy2 = ExtResource("9_mea5k")
