@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://tkfme2kmilka" path="res://assets/cats/DemonicFree/IdleCatd.png" id="1_r1cl0"]
 [ext_resource type="Texture2D" uid="uid://b76413yf7n1kt" path="res://assets/cats/DemonicFree/JumpCatd.png" id="3_an68x"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qvdqt"]
-radius = 5.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnkx1"]
 atlas = ExtResource("1_r1cl0")
 region = Rect2(0, 0, 32, 32)
@@ -160,17 +157,20 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvdqt"]
+radius = 10.2956
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 15
 script = ExtResource("1_j7dxf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_qvdqt")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(1, -13)
 sprite_frames = SubResource("SpriteFrames_8smgg")
 animation = &"run"
 autoplay = "run"
 frame_progress = 0.160419
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_qvdqt")
