@@ -32,3 +32,6 @@ The main goal was to **deepen my understanding of Godot** by building a **simple
 
 ---
 
+##  To play the game
+
+https://larebelleuse55.itch.io/kittycatcat
