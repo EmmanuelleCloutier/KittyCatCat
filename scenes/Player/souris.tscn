@@ -3,6 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cscnylhln1tj7" path="res://assets/materials/Mouse-Sheet.png" id="1_ajfru"]
 [ext_resource type="Script" path="res://scripts/Player/Souris.cs" id="1_bb6kp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gve28"]
+size = Vector2(8, 3.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6xot"]
+size = Vector2(8, 4)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_iqosn"]
 atlas = ExtResource("1_ajfru")
 region = Rect2(0, 0, 39, 32)
@@ -39,31 +45,26 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gq5to"]
-radius = 9.05539
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1snti"]
-
 [node name="Souris" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_layer = 8
 script = ExtResource("1_bb6kp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_gve28")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_r6xot")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4mcgs")
 animation = &"run"
 autoplay = "run"
 frame_progress = 0.968772
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
-shape = SubResource("CircleShape2D_gq5to")
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_1snti")
 
 [connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]
